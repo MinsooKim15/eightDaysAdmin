@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "eight-days-9e75a": {
+      "hosting": {
+        "eightDaysAdmin": [
+          "eight-days-9e75a"
+        ]
+      }
+    }
+  }
+}

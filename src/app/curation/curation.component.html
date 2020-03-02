@@ -1,0 +1,70 @@
+
+<div id= "container">
+  <div id= "search-section" class = "section">
+    <div class= "content-wrapper">
+      <div class= "title">
+        Curation 검색
+      </div>
+      <div class ="detail">
+        <span>
+         검색어
+        </span>
+        <input [(ngModel)] = "searchQuery" placeholder = "검색 기능은 나중에!">
+        <button class= "search">검색</button>
+      </div>
+    </div>
+    <div class= "button-wrapper">
+      <button class = "save">저장</button>
+    </div>
+  </div>
+  <div id="list-section" class= "section">
+    <div class="title-wrapper">
+      <div class= "title detail-title">
+        curation 조회
+      </div>
+      <button [routerLink]="['/curation-detail',tempId]" class= "create">추가</button>
+    </div>
+
+      <div class= "table-container">
+        <div class= "table-wrapper">
+          <div class = "table">
+            <div class= "table-head">
+              <table>
+                <thead>
+                  <tr class= "head">
+                    <th class= "cell-medium cell">Curation Id</th>
+                    <th class= "cell-small cell">Rank</th>
+                    <th class= "cell-big cell">Curation 제목</th>
+                    <th class= "cell-medium cell">수정</th>
+                  </tr>
+                </thead>
+              </table>
+
+            </div>
+            <div class= "table-body">
+              <table>
+                <tbody>
+                  <tr *ngFor = "let curation of curations" class = "body">
+                    <a routerLink="/curation-detail/{{curation.id}}">
+                      <td class ="cell-medium cell">{{curation.id}}</td>
+                    <td class="cell-small cell">{{curation.rank}}</td>
+                    <td class= "cell-big cell">{{curation.title}}</td>
+                    <td class ="cell-medium cell">
+                      <button class= "edit">
+                        수정
+                      </button>
+                      <button class= "delete">
+                        삭제
+                      </button>
+                    </td>
+                    </a>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

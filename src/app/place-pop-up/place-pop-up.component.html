@@ -1,0 +1,59 @@
+<ng-template #content let-modal>
+  <div class= "modal-header">
+      <h4 class="modal-title" id ="modal-basic-title">Profile update</h4>
+      <button type ="button" class="close" aria-lable="Close" (click)="modal.dismiss('Cross click')">
+        <span>&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <div class="input-group">
+          <span>지역명 검색(Exact)</span>
+          <input type="text" [(ngModel)] = "query" [ngModelOptions]="{standalone: true}">
+          <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="search()">검색</button>
+</div>
+        </div>
+        <div class= "input-group">
+          <span>랭킹</span>
+          <input type="text" [(ngModel)] = "rank" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </form>
+    <div class= "table">
+      <div class ="table-head">
+        <table>
+          <tr>
+            <th>지역명</th>
+            <th>별명</th>
+            <th>점수</th>
+            <th>선택</th>
+            <th>O/X</th>
+          </tr>
+        </table>
+      </div>
+      <div class="table-body">
+          <tr *ngFor = "let place of places">
+            <td>{{place.titleKor}}</td>
+            <td>{{place.subtitle}}</td>
+            <td>{{place.score}}</td>
+            <td><button class="btn btn-outline-secondary" (click)= "selectPlace(place)">선택</button></td>
+            <td><span *ngIf="place == selectedPlace">O</span></td>
+          </tr>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="saveClicked()">Save</button>
+  </div>
+</ng-template>
+
+
+<button class="create" (click)="open(content)">추가</button>
+<hr>
+<pre>
+  <!-- {{date.year}} -->
+</pre>

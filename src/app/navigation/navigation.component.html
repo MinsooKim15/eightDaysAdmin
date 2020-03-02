@@ -1,0 +1,8 @@
+<div id= "container">
+  <div id= "wrapper">
+    <nav class= "menu-list" *ngFor = "let menu of menuList">
+    <a routerLink="/{{menu}}" class= "menu-name" [class.selected] = "menu === selectedMenu" (click)= "onSelect(menu)">{{menu}}</a>
+  </nav>
+  </div>
+
+</div>
